@@ -21,21 +21,44 @@ const deityOptions = [
 
 type SortType = "newest" | "price-low-high" | "price-high-low";
 
-function ShopPageContent() {
+interface ShopPageClientProps {
+  initialDeity?: DeitySlug | "all";
+  initialCategory?: ProductCategory | "all";
+  initialSort?: SortType;
+  onlyBestsellers?: boolean;
+  pageTitle?: string;
+  pageSubtitle?: string;
+}
+
+function ShopPageContent({
+  initialDeity = "all",
+  initialCategory = "all",
+  initialSort = "newest",
+  onlyBestsellers = false,
+  pageTitle = "Find the perfect shringar",
+  pageSubtitle = "Shop All Products"
+}: ShopPageClientProps) {
   const searchParams = useSearchParams();
   const initialQuery = searchParams.get("q") || "";
 
   const [search, setSearch] = useState(initialQuery);
-  const [selectedDeity, setSelectedDeity] = useState<DeitySlug | "all">("all");
-  const [selectedType, setSelectedType] = useState<ProductCategory | "all">("all");
+  const [selectedDeity, setSelectedDeity] = useState<DeitySlug | "all">(initialDeity);
+  const [selectedType, setSelectedType] = useState<ProductCategory | "all">(initialCategory);
   const [selectedSize, setSelectedSize] = useState<(typeof sizeOptions)[number] | "all">("all");
   const [maxPrice, setMaxPrice] = useState(5000);
-  const [sortBy, setSortBy] = useState<SortType>("newest");
+  const [sortBy, setSortBy] = useState<SortType>(initialSort);
 
   useEffect(() => {
     const q = searchParams.get("q");
     if (q !== null) {
       setSearch(q);
+    }
+  }, [searchParams]);
+
+  useEffect(() => {
+    const deity = searchParams.get("deity");
+    if (deity && deityOptions.some(o => o.value === deity)) {
+      setSelectedDeity(deity as DeitySlug);
     }
   }, [searchParams]);
 
@@ -53,8 +76,9 @@ function ShopPageContent() {
       const typeMatch = selectedType === "all" || product.category === selectedType;
       const sizeMatch = selectedSize === "all" || product.size.includes(selectedSize);
       const priceMatch = product.price <= maxPrice;
+      const bestsellerMatch = !onlyBestsellers || product.bestSeller;
 
-      return searchMatch && deityMatch && typeMatch && sizeMatch && priceMatch;
+      return searchMatch && deityMatch && typeMatch && sizeMatch && priceMatch && bestsellerMatch;
     });
 
     switch (sortBy) {
@@ -67,7 +91,7 @@ function ShopPageContent() {
           (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
         );
     }
-  }, [maxPrice, search, selectedDeity, selectedSize, selectedType, sortBy]);
+  }, [maxPrice, search, selectedDeity, selectedSize, selectedType, sortBy, onlyBestsellers]);
 
   const resetFilters = () => {
     setSearch("");
@@ -83,8 +107,8 @@ function ShopPageContent() {
       <div className="mb-6 rounded-2xl border border-maroon/10 bg-card p-5 md:p-6">
         <div className="mb-4 flex items-center justify-between gap-3">
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-soft-green">Shop All Products</p>
-            <h1 className="text-3xl font-bold text-maroon md:text-4xl">Find the perfect shringar</h1>
+            <p className="text-xs uppercase tracking-[0.2em] text-soft-green">{pageSubtitle}</p>
+            <h1 className="text-3xl font-bold text-maroon md:text-4xl">{pageTitle}</h1>
           </div>
           <button
             type="button"
@@ -95,6 +119,7 @@ function ShopPageContent() {
             Reset
           </button>
         </div>
+        {/* ... Rest of visual filter inputs remain identical ... */}
 
         <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-6">
           <label className="lg:col-span-2">
@@ -207,10 +232,10 @@ function ShopPageContent() {
   );
 }
 
-export function ShopPageClient() {
+export function ShopPageClient(props: ShopPageClientProps) {
   return (
     <Suspense fallback={<div className="p-20 text-center text-muted">Loading shringar...</div>}>
-      <ShopPageContent />
+      <ShopPageContent {...props} />
     </Suspense>
   );
 }

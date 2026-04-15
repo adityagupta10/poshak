@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, MapPin, Phone, SendCheck } from "lucide-react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -19,7 +19,7 @@ export default function ContactPage() {
           {submitted ? (
             <div className="flex h-full flex-col items-center justify-center space-y-4 py-10 text-center animate-fade-in">
               <div className="rounded-full bg-soft-green/10 p-5">
-                <SendCheck className="h-10 w-10 text-soft-green" />
+                <Send className="h-10 w-10 text-soft-green" />
               </div>
               <h2 className="text-xl font-bold text-maroon">Message Sent with Devotion</h2>
               <p className="max-w-xs text-sm text-muted">

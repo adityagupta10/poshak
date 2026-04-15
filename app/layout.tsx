@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
+import { AnnouncementBar } from "@/components/layout/announcement-bar";
 import { Footer } from "@/components/layout/footer";
 import { storeInfo } from "@/lib/data";
 
@@ -63,6 +64,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body className={`${headingFont.variable} ${bodyFont.variable} antialiased`}>
+        <AnnouncementBar />
         <Header />
         <main>{children}</main>
         <Footer />

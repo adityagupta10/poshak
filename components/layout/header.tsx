@@ -2,24 +2,34 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Heart, Menu, Search, ShoppingBag, X } from "lucide-react";
+import { ChevronDown, Heart, Menu, Search, ShoppingBag, X } from "lucide-react";
 import { FormEvent, useMemo, useState } from "react";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { useCartStore } from "@/store/cart-store";
 import { useWishlistStore } from "@/store/wishlist-store";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/shop", label: "Shop" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-  { href: "/shipping-policy", label: "Shipping Policy" }
+  { href: "/bestsellers", label: "Best Seller" },
+  { href: "/combos", label: "Combos" },
+  { href: "/new-launches", label: "New Launch" }
+];
+
+const deities = [
+  { value: "krishna", label: "Krishna / Laddu Gopal" },
+  { value: "radha", label: "Radha" },
+  { value: "radha-krishna", label: "Radha-Krishna" },
+  { value: "ganesh", label: "Ganesh" },
+  { value: "lakshmi", label: "Lakshmi" },
+  { value: "shiva", label: "Shiva" },
+  { value: "durga", label: "Durga" },
+  { value: "sai-baba", label: "Sai Baba" }
 ];
 
 export function Header() {
   const pathname = usePathname();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   
   const cartCount = useCartStore((state) => state.items.reduce((sum, item) => sum + item.quantity, 0));
@@ -75,10 +85,48 @@ export function Header() {
               </Link>
             );
           })}
+
+          {/* Shop Dropdown */}
+          <div 
+            className="relative"
+            onMouseEnter={() => setIsDropdownOpen(true)}
+            onMouseLeave={() => setIsDropdownOpen(false)}
+          >
+            <button
+              className={`flex items-center gap-1 text-sm transition ${
+                pathname.startsWith("/shop") ? "text-maroon font-semibold" : "text-foreground/80 hover:text-maroon"
+              }`}
+            >
+              Shop by Gods
+              <ChevronDown className={`h-3.5 w-3.5 transition-transform ${isDropdownOpen ? "rotate-180" : ""}`} />
+            </button>
+
+            {isDropdownOpen && (
+              <div className="absolute left-0 top-full pt-3 animate-fade-in">
+                <div className="w-56 overflow-hidden rounded-xl border border-maroon/10 bg-card p-1 shadow-xl">
+                  <Link
+                    href="/shop"
+                    className="block px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-muted hover:bg-maroon/5 hover:text-maroon"
+                  >
+                    View All
+                  </Link>
+                  <div className="my-1 border-t border-maroon/5" />
+                  {deities.map((deity) => (
+                    <Link
+                      key={deity.value}
+                      href={`/shop?deity=${deity.value}`}
+                      className="block px-4 py-2.5 text-sm text-foreground/80 transition hover:bg-maroon/5 hover:text-maroon"
+                    >
+                      {deity.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </nav>
 
         <div className="flex items-center gap-2">
-          <ThemeToggle />
           <Link
             href="/wishlist"
             className="relative inline-flex h-9 w-9 items-center justify-center rounded-full border border-maroon/20 bg-card/70 text-maroon transition hover:bg-maroon hover:text-cream"
@@ -140,6 +188,22 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
+            
+            <div className="mt-2 border-t border-maroon/5 pt-4">
+              <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-muted">Shop by Gods</p>
+              <div className="grid grid-cols-2 gap-y-3">
+                {deities.map((deity) => (
+                  <Link
+                    key={deity.value}
+                    href={`/shop?deity=${deity.value}`}
+                    onClick={() => setIsOpen(false)}
+                    className="text-sm text-foreground/80 transition hover:text-maroon"
+                  >
+                    {deity.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </nav>
         </div>
       ) : null}
