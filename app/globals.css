@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fdfaf4;
+  --foreground: #2d1b17;
+  --saffron: #ff9933;
+  --maroon: #7a1f2a;
+  --gold: #ffd700;
+  --cream: #f5f0e6;
+  --soft-green: #8aa86f;
+  --card: #fff9ed;
+  --muted: #b58b64;
+}
+
+.dark {
+  --background: #1a1210;
+  --foreground: #f7ecda;
+  --card: #271b18;
+  --cream: #2f2320;
+  --muted: #c7b399;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-saffron: var(--saffron);
+  --color-maroon: var(--maroon);
+  --color-gold: var(--gold);
+  --color-cream: var(--cream);
+  --color-soft-green: var(--soft-green);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), Georgia, serif;
+}
+
+.motif-bg {
+  background-image: radial-gradient(circle at 12% 28%, rgba(255, 215, 0, 0.12) 0, transparent 30%),
+    radial-gradient(circle at 88% 18%, rgba(255, 153, 51, 0.14) 0, transparent 30%),
+    radial-gradient(circle at 50% 85%, rgba(138, 168, 111, 0.14) 0, transparent 26%);
+}
+
+.mandala-border {
+  position: relative;
+}
+
+.mandala-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  border: 1px solid color-mix(in srgb, var(--gold) 38%, transparent);
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+}
+
+.peacock-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 153, 51, 0.8) 20%, rgba(255, 215, 0, 0.85) 50%, rgba(122, 31, 42, 0.8) 80%, transparent 100%);
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out both;
+}
+
+.animate-rise-in {
+  animation: rise-in 0.55s ease-out both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
