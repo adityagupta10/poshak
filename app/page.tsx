@@ -46,7 +46,7 @@ export default function HomePage() {
           <div className="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-saffron/30 via-gold/20 to-soft-green/25 blur-2xl" />
           <div className="relative mandala-border overflow-hidden rounded-3xl border border-maroon/10">
             <Image
-              src="https://picsum.photos/seed/hero-divine-poshak/1200/1000"
+              src="/hero.png"
               alt="Devotional idol adorned in traditional poshak"
               width={1200}
               height={1000}

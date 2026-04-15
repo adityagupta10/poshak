@@ -67,11 +67,9 @@ export const products: Product[] = [
     material: "Banarasi silk, zari border, kundan-stone mukut",
     description:
       "A bright peetambar-inspired poshak set handcrafted for daily and festive seva. The soft inner lining keeps the vastra gentle for murti dressing. Every stitch is prepared with devotion for your beloved Kanha.",
-    image: "https://picsum.photos/seed/krishna-poshak-101/1200/1200",
+    image: "/1.jpg",
     images: [
-      "https://picsum.photos/seed/krishna-poshak-101/1200/1200",
-      "https://picsum.photos/seed/krishna-poshak-101-b/1200/1200",
-      "https://picsum.photos/seed/krishna-poshak-101-c/1200/1200"
+      "/1.jpg"
     ],
     inStock: true,
     featured: true,
@@ -90,11 +88,9 @@ export const products: Product[] = [
     material: "Velvet, gota-patti lace, pearl trims",
     description:
       "This graceful lehenga-style poshak adds a soft festive look to Radha Rani darshan. Fine pearl detailing enriches the silhouette without overpowering the murti. Crafted to honor simplicity, beauty, and bhakti.",
-    image: "https://picsum.photos/seed/radha-poshak-102/1200/1200",
+    image: "/2.jpg",
     images: [
-      "https://picsum.photos/seed/radha-poshak-102/1200/1200",
-      "https://picsum.photos/seed/radha-poshak-102-b/1200/1200",
-      "https://picsum.photos/seed/radha-poshak-102-c/1200/1200"
+      "/2.jpg"
     ],
     inStock: true,
     featured: true,
@@ -112,11 +108,9 @@ export const products: Product[] = [
     material: "Silk-blend brocade, zari embroidery",
     description:
       "A rich maroon vastra set that reflects auspicious festive warmth. Easy-tie pattern supports smooth draping during daily pooja and special vrat days. Made with reverence for Ganpati Bappa seva.",
-    image: "https://picsum.photos/seed/ganesh-poshak-103/1200/1200",
+    image: "/3.jpg",
     images: [
-      "https://picsum.photos/seed/ganesh-poshak-103/1200/1200",
-      "https://picsum.photos/seed/ganesh-poshak-103-b/1200/1200",
-      "https://picsum.photos/seed/ganesh-poshak-103-c/1200/1200"
+      "/3.jpg"
     ],
     inStock: true,
     bestSeller: true,
@@ -134,11 +128,9 @@ export const products: Product[] = [
     material: "Gold-tone alloy, mirror stones, silk thread",
     description:
       "A complete ornament kit with necklace, waist-belt, and earrings for shubh alankar. Gold accents are balanced for an elegant temple-style look at home mandirs. Designed to elevate Lakshmi Pooja darshan beautifully.",
-    image: "https://picsum.photos/seed/lakshmi-ornament-104/1200/1200",
+    image: "/4.webp",
     images: [
-      "https://picsum.photos/seed/lakshmi-ornament-104/1200/1200",
-      "https://picsum.photos/seed/lakshmi-ornament-104-b/1200/1200",
-      "https://picsum.photos/seed/lakshmi-ornament-104-c/1200/1200"
+      "/4.webp"
     ],
     inStock: true,
     featured: true,
@@ -156,11 +148,9 @@ export const products: Product[] = [
     material: "Pure silk, zari motifs, pearl-lace finish",
     description:
       "A coordinated couple set for Radha-Krishna with matching zari patterns and ornaments. The premium drape and festive color make it ideal for Janmashtami and daily shringar alike. Handcrafted by artisans devoted to temple aesthetics.",
-    image: "https://picsum.photos/seed/rk-set-105/1200/1200",
+    image: "/5.jpg",
     images: [
-      "https://picsum.photos/seed/rk-set-105/1200/1200",
-      "https://picsum.photos/seed/rk-set-105-b/1200/1200",
-      "https://picsum.photos/seed/rk-set-105-c/1200/1200"
+      "/5.jpg"
     ],
     inStock: true,
     bestSeller: true,
@@ -179,11 +169,9 @@ export const products: Product[] = [
     material: "Wood beads, antique-finish caps, cotton thread",
     description:
       "A serene mala set inspired by traditional rudraksha styling for Mahadev murti. Lightweight and balanced proportions keep the alankar graceful for everyday darshan. Suitable for Shivratri and regular abhishek seva settings.",
-    image: "https://picsum.photos/seed/shiva-jewel-106/1200/1200",
+    image: "/6.webp",
     images: [
-      "https://picsum.photos/seed/shiva-jewel-106/1200/1200",
-      "https://picsum.photos/seed/shiva-jewel-106-b/1200/1200",
-      "https://picsum.photos/seed/shiva-jewel-106-c/1200/1200"
+      "/6.webp"
     ],
     inStock: true,
     createdAt: "2026-01-22"
@@ -200,11 +188,9 @@ export const products: Product[] = [
     material: "Hand-embossed fiber base, kundan and sequins",
     description:
       "A regal mukut designed with Durga utsav tones of red and gold. The inner padding supports secure, comfortable placement on idols during daily and festive worship. Finished carefully to preserve the sanctity of your altar.",
-    image: "https://picsum.photos/seed/durga-crown-107/1200/1200",
+    image: "/7.webp",
     images: [
-      "https://picsum.photos/seed/durga-crown-107/1200/1200",
-      "https://picsum.photos/seed/durga-crown-107-b/1200/1200",
-      "https://picsum.photos/seed/durga-crown-107-c/1200/1200"
+      "/7.webp"
     ],
     inStock: true,
     featured: true,
@@ -222,11 +208,9 @@ export const products: Product[] = [
     material: "Soft cotton, satin trims",
     description:
       "A simple and serene cotton vastra for Sai Baba idols in mandir and home setups. Breathable material and clean tailoring support easy daily dressing and maintenance. Made for devotees who prefer calm, sattvic elegance.",
-    image: "https://picsum.photos/seed/saibaba-clothes-108/1200/1200",
+    image: "/8.webp",
     images: [
-      "https://picsum.photos/seed/saibaba-clothes-108/1200/1200",
-      "https://picsum.photos/seed/saibaba-clothes-108-b/1200/1200",
-      "https://picsum.photos/seed/saibaba-clothes-108-c/1200/1200"
+      "/8.webp"
     ],
     inStock: true,
     createdAt: "2026-02-07"
@@ -243,11 +227,9 @@ export const products: Product[] = [
     material: "Velvet base, faux mor-pankh, kundan",
     description:
       "A peacock-inspired mukut that complements festive Kanha poshak sets. Structured design offers stable fit while keeping the visual light and devotional. An ideal crown for Janmashtami, Annakut, and daily shringar.",
-    image: "https://picsum.photos/seed/krishna-crown-109/1200/1200",
+    image: "/9.webp",
     images: [
-      "https://picsum.photos/seed/krishna-crown-109/1200/1200",
-      "https://picsum.photos/seed/krishna-crown-109-b/1200/1200",
-      "https://picsum.photos/seed/krishna-crown-109-c/1200/1200"
+      "/9.webp"
     ],
     inStock: true,
     bestSeller: true,
@@ -265,11 +247,9 @@ export const products: Product[] = [
     material: "Pearls, kundan stones, alloy clasp",
     description:
       "A refined necklace and earring set styled for Radha Rani alankar. The pearl-kundan balance keeps the look devotional, graceful, and festive. Works beautifully with both pastel and deep-tone poshaks.",
-    image: "https://picsum.photos/seed/radha-jewel-110/1200/1200",
+    image: "/10.jpg",
     images: [
-      "https://picsum.photos/seed/radha-jewel-110/1200/1200",
-      "https://picsum.photos/seed/radha-jewel-110-b/1200/1200",
-      "https://picsum.photos/seed/radha-jewel-110-c/1200/1200"
+      "/10.jpg"
     ],
     inStock: true,
     createdAt: "2026-02-26"
